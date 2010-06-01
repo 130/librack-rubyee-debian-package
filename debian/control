@@ -1,0 +1,23 @@
+Source: librack-rubyee
+Section: ruby
+Priority: optional
+Maintainer: Leonid Borisenko <leo.borisenko@gmail.com>
+Build-Depends: debhelper (>= 6.0.7~), cdbs, ruby-pkg-tools
+Build-Depends-Indep: rubyee1.8, help2man
+Standards-Version: 3.8.1
+Homepage: http://rack.rubyforge.org/
+
+Package: librack-rubyee1.8
+Architecture: all
+Depends: ${misc:Depends}, rubyee1.8, librubyee1.8
+Description: modular Ruby webserver interface (Ruby Enterprise Edition 1.8)
+ Rack provides a minimal, modular and adaptable interface for
+ developing web applications in Ruby.  By wrapping HTTP requests and
+ responses in the simplest way possible, it unifies and distills the
+ API for web servers, web frameworks, and software in between (the
+ so-called middleware) into a single method call.
+ .
+ The exact details of this are described in the Rack specification,
+ which all Rack applications should conform to.
+ .
+ For obtaining documentation, install package librack-ruby.

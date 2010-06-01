@@ -1,0 +1,28 @@
+librack-rubyee (1.0.0-1) lenny; urgency=low
+
+  * Initial relsease.
+  * 'debian' directory was copied from official Debian librack-ruby (1.0.0-2)
+    package (maintained by Sebastien Delafond) with following changes:
+    - debian/control
+      * source package name was changed from librack-ruby to librack-rubyee
+      * changed Maintainer name
+      * ruby1.8 was changed to rubyee1.8 in Build-Depends-Indep
+      * librack-ruby1.8 package was renamed to librack-rubyee1.8
+      * ruby1.8, libruby1.8 was changed by rubyee1.8, librubyee1.8 in Depends
+        of librack-rubyee1.8
+      * librack-rubyee1.8 Description was changed
+      * librack-ruby package was removed
+    - debian/rules
+      * suffix '1.8' was changed to 'ee1.8'
+      * added renaming of installed /usr/bin/rackup to /usr/bin/rackupee1.8
+    - debian/librack-ruby.*
+      * deleted (was related to building librack-ruby package only)
+    - debian/source.lintian-overrides
+      * deleted (was related to building librack-ruby package only)
+    - debian/librack-ruby1.8.manpages
+      * renamed to librack-rubyee1.8.manpages
+      * suffix '1.8' was changed to 'ee1.8'
+    - debian/copyright
+      * added maintainer name
+
+ -- Leonid Borisenko <leo.borisenko@gmail.com>  Mon, 31 May 2010 04:19:29 +0300

@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+binary-install/librack-rubyee1.8:: debian/rackupee1.8.1
+
+debian/rackupee1.8.1:
+	chmod +x ./bin/rackup
+	help2man -N -n "run a rack web service" -o debian/rackupee1.8.1 ./bin/rackup
+
+clean::
+	rm -f debian/rackupee1.8.1
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/ruby-pkg-tools/1/class/ruby-setup-rb.mk
+
+# keep it consistent, just in case setup.rb decides not to change it for some reason
+binary-install/librack-rubyee1.8::
+	sed -i 's,#!/usr/bin/env ruby,#! /usr/bin/rubyee1.8,' $(CURDIR)/debian/$(cdbs_curpkg)/usr/bin/rackup
+	mv $(CURDIR)/debian/$(cdbs_curpkg)/usr/bin/rackup $(CURDIR)/debian/$(cdbs_curpkg)/usr/bin/rackupee1.8
+
+# setup.rb likes to change this
+clean::
+	sed -i 's,#! /usr/bin/rubyee1.8,#!/usr/bin/env ruby,' bin/rackup
